@@ -1,6 +1,6 @@
 {
   "name": "object-class-initializer",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Create an object using an anonymous class to access the 'object' during its initialization.",
   "main": "./lib/cjs/index.js",
   "exports": {
