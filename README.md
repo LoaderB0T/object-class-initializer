@@ -11,9 +11,63 @@ Demo repo for using an anonymous class as an object initializer in TypeScript.
 
 Create an object using an anonymous class to access the 'object' during its initialization. It's 6 lines of code, you might want to just copy paste this instead of installing this package, but who am I to judge?
 
+## Features 🔥
+
+✅ Create an object instance using an anonymous class
+
+✅ Access the object during its initialization
+
+✅ Type the object using generics (type safety)
+
+✅ No dependencies
+
 ## Built With 🔧
 
 - [TypeScript](https://www.typescriptlang.org/)
+
+## Installation 📦
+
+```console
+pnpm i object-class-initializer
+// or
+yarn add object-class-initializer
+// or
+npm i object-class-initializer
+```
+
+## Usage Example 🚀
+
+```typescript
+import { createObject } from 'object-class-initializer';
+```
+
+```typescript
+const obj = createObject(
+  class {
+    a = 'foo';
+    b = 'bar';
+    c = this.a + this.b; // foobar
+  }
+);
+// obj is now typed as { a: string, b: string, c: string }
+
+// OR typed
+
+type FooBar = {
+  a: string;
+  b: string;
+  c: string;
+};
+
+const obj = createObject<FooBar>(
+  class {
+    a = 'foo';
+    b = 'bar';
+    c = this.a + this.b; // foobar
+  }
+);
+// obj is now typed as FooBar
+```
 
 ## Contributing 🧑🏻‍💻
 
