@@ -11,6 +11,10 @@ Demo repo for using an anonymous class as an object initializer in TypeScript.
 
 Create an object using an anonymous class to access the 'object' during its initialization. It's 6 lines of code, you might want to just copy paste this instead of installing this package, but who am I to judge?
 
+## Read About This 📖
+
+I wrote a [medium post](https://loaderb0t.medium.com/you-cannot-access-a-javascript-object-during-its-initialization-or-can-you-513fa248cfb7) about the idea of this package. Please read the post to get all the details!
+
 ## Features 🔥
 
 ✅ Create an object instance using an anonymous class
