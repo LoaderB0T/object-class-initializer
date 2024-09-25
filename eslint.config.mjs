@@ -1,29 +1,25 @@
-import path from "node:path";
-import { fileURLToPath } from "node:url";
-import js from "@eslint/js";
-import { FlatCompat } from "@eslint/eslintrc";
+import awdwareNode from '@awdware/eslint-config-nodejs';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const compat = new FlatCompat({
-    baseDirectory: __dirname,
-    recommendedConfig: js.configs.recommended,
-    allConfig: js.configs.all
-});
-
-export default [{
-    ignores: ["test/**/*", "**/jest.config.ts"],
-}, ...compat.extends("@awdware/eslint-config-nodejs"), {
+export default [
+  {
+    ignores: ['test/**/*', '**/jest.config.ts', 'eslint.config.mjs'],
+  },
+  {
     languageOptions: {
-        ecmaVersion: 5,
-        sourceType: "script",
-
-        parserOptions: {
-            project: "./tsconfig.json",
+      parserOptions: {
+        projectService: {
+          allowDefaultProject: ['*.js', '*.mjs'],
+          defaultProject: true,
         },
+        tsconfigRootDir: import.meta.name,
+        allowDefaultProject: true,
+      },
     },
-
+  },
+  ...awdwareNode,
+  {
     rules: {
-        "switch-colon-spacing": "warn",
+      'switch-colon-spacing': 'warn',
     },
-}];
+  },
+];
